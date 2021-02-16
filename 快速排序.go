@@ -1,5 +1,12 @@
 package main
 
+import "fmt"
+
+func main() {
+	test := []int{1, 3, 5, 8, 10, 2}
+	fmt.Println(QuickSort(test))
+}
+
 func QuickSort(nums []int) []int {
 	quickSort(nums, 0, len(nums)-1)
 	return nums
