@@ -3,75 +3,76 @@ package main
 import "fmt"
 
 type TreeNode struct {
-	Val         int
-	Left, Right *TreeNode
+	val         int
+	left, right *TreeNode
 }
 
 func main() {
-	root := TreeNode{
-		Val: 1,
-		Left: &TreeNode{
-			Val:   2,
-			Left:  &TreeNode{Val: 4},
-			Right: &TreeNode{Val: 5},
-		},
-		Right: &TreeNode{
-			Val:   3,
-			Left:  &TreeNode{Val: 6},
-			Right: &TreeNode{Val: 7},
-		},
+	tree := &TreeNode{
+		val:   1,
+		left:  &TreeNode{val: 2, left: &TreeNode{val: 4}, right: &TreeNode{val: 5}},
+		right: &TreeNode{val: 3, left: &TreeNode{val: 6}, right: &TreeNode{val: 7}},
 	}
-	fmt.Println(preOrder(&root))
-	fmt.Println(midOrder(&root))
-	fmt.Println(postOrder(&root))
+	preorder(tree)
+	inorder(tree)
+	postorder(tree)
 }
 
-func preOrder(root *TreeNode) (result []int) {
-	var stack []*TreeNode
-	for root != nil || len(stack) > 0 {
+func preorder(root *TreeNode) {
+	var (
+		stack  []*TreeNode
+		result []int
+	)
+	for root != nil || len(stack) != 0 {
 		for root != nil {
-			result = append(result, root.Val)
+			result = append(result, root.val)
 			stack = append(stack, root)
-			root = root.Left
+			root = root.left
 		}
-		root = stack[len(stack)-1].Right
+		node := stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
+		root = node.right
 	}
-	return result
+	fmt.Println(result)
 }
 
-func midOrder(root *TreeNode) (result []int) {
-	var stack []*TreeNode
-	for root != nil || len(stack) > 0 {
+func inorder(root *TreeNode) {
+	var (
+		stack  []*TreeNode
+		result []int
+	)
+	for root != nil || len(stack) != 0 {
 		for root != nil {
 			stack = append(stack, root)
-			root = root.Left
+			root = root.left
 		}
-		root = stack[len(stack)-1].Right
-		result = append(result, stack[len(stack)-1].Val)
+		node := stack[len(stack)-1]
 		stack = stack[:len(stack)-1]
+		result = append(result, node.val)
+		root = node.right
 	}
-	return result
+	fmt.Println(result)
 }
 
-func postOrder(root *TreeNode) (result []int) {
-	var stack []*TreeNode
-	var prev *TreeNode
-	for root != nil || len(stack) > 0 {
+func postorder(root *TreeNode) {
+	var (
+		stack     []*TreeNode
+		result    []int
+		lastvisit *TreeNode
+	)
+	for root != nil || len(stack) != 0 {
 		for root != nil {
 			stack = append(stack, root)
-			root = root.Left
+			root = root.left
 		}
-		root = stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-		if root.Right == nil || root.Right == prev {
-			result = append(result, root.Val)
-			prev = root
-			root = nil
+		node := stack[len(stack)-1]
+		if node.right == nil || node.right == lastvisit {
+			stack = stack[:len(stack)-1] // 弹出
+			result = append(result, node.val)
+			lastvisit = node //保存访问记录
 		} else {
-			stack = append(stack, root)
-			root = root.Right
+			root = node.right // 访问右节点
 		}
 	}
-	return result
+	fmt.Println(result)
 }
