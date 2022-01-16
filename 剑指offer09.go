@@ -1,33 +1,51 @@
 package main
 
+type stack []int
+
+func (s *stack) push(item int) {
+	*s = append(*s, item)
+}
+
+func (s *stack) pop() int {
+	item := (*s)[len(*s)-1]
+	*s = (*s)[:len(*s)-1]
+	return item
+}
+
+func (s *stack) empty() bool {
+	return len(*s) == 0
+}
+
+func NewStack() *stack {
+	s := stack(make([]int, 0))
+	return &s
+}
+
 type CQueue struct {
-	pos, neg []int
+	pos, neg *stack
 }
 
 func Constructor() CQueue {
-	return CQueue{}
+	return CQueue{
+		pos: NewStack(),
+		neg: NewStack(),
+	}
 }
 
-func (this *CQueue) AppendTail(value int) {
-	// 把反向栈里的内容重新压回来
-	for len(this.neg) > 0 {
-		this.pos = append(this.pos, this.neg[len(this.neg)-1])
-		this.neg = this.neg[:len(this.neg)-1]
-	}
-	this.pos = append(this.pos, value)
+func (c *CQueue) AppendTail(item int) {
+	c.pos.push(item)
 }
 
-func (this *CQueue) DeleteHead() int {
-	for len(this.pos) > 0 {
-		this.neg = append(this.neg, this.pos[len(this.pos)-1])
-		this.pos = this.pos[:len(this.pos)-1]
+func (c *CQueue) DeleteHead() int {
+	if c.neg.empty() {
+		for !c.pos.empty() {
+			c.neg.push(c.pos.pop())
+		}
 	}
-	if len(this.neg) > 0 {
-		result := this.neg[len(this.neg)-1]
-		this.neg = this.neg[:len(this.neg)-1]
-		return result
+	if c.neg.empty() {
+		return -1
 	}
-	return -1
+	return c.neg.pop()
 }
 
 /**
