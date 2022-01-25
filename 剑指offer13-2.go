@@ -1,5 +1,7 @@
 package main
 
+// 动态规划
+
 func getCount(m int) int {
 	result := 0
 	for m > 0 {

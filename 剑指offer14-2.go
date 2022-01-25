@@ -1,5 +1,7 @@
 package main
 
+// 贪心算法
+
 func cuttingRope(n int) int {
 	if n <= 3 {
 		return n - 1
