@@ -9,12 +9,12 @@
 package main
 
 func copyRandomList(head *Node) *Node {
+	// 一种空间复杂度O1，时间复杂度On的算法
 	if head == nil {
 		return nil
 	}
 	cur := head
-	// 拼接链表
-	for cur != nil {
+	for cur != nil { // 将复制后的节点放在节点之后，进行拼接
 		cur.Next = &Node{
 			Val:  cur.Val,
 			Next: cur.Next,
@@ -23,13 +23,13 @@ func copyRandomList(head *Node) *Node {
 	}
 	// 调整random指针
 	cur = head
-	for cur != nil {
+	for cur != nil { // random指针的下个节点就是复制后的random节点
 		if cur.Random != nil {
 			cur.Next.Random = cur.Random.Next
 		}
 		cur = cur.Next.Next
 	}
-	// 拆分链表
+	// 最后再将链表拆分，保留原始链表的前提下拆出复制链表
 	result := head.Next
 	cur = head.Next
 	prev := head

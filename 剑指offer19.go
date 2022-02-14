@@ -13,7 +13,7 @@ func isMatch(s string, p string) bool {
 		}
 		return s[i-1] == p[j-1]
 	}
-	dp := make([][]bool, len(s)+1)
+	dp := make([][]bool, len(s)+1) // dp[i][j]的实际含义是s的第i位和p的第j位是否匹配
 	for i := range dp {
 		dp[i] = make([]bool, len(p)+1)
 	}

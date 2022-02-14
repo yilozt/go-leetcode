@@ -5,7 +5,7 @@ func validateStackSequences(pushed []int, popped []int) bool {
 	var index int
 	for _, v := range pushed {
 		stack = append(stack, v)
-		for len(stack) > 0 && stack[len(stack)-1] == popped[index] {
+		for len(stack) > 0 && stack[len(stack)-1] == popped[index] { // 判断压入的元素是否和弹出序列顶部相同
 			index++
 			stack = stack[:len(stack)-1]
 		}

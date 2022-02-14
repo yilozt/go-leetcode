@@ -16,7 +16,7 @@ func pathSum(root *TreeNode, sum int) [][]int {
 	}
 	var dfs func(*TreeNode, int, []int)
 	dfs = func(node *TreeNode, current int, path []int) {
-		if node == nil {
+		if node == nil { // 因不保证节点val正负，此处不能剪枝
 			return
 		}
 		path = append(path, node.Val)
