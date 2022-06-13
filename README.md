@@ -1,6 +1,6 @@
 ## 仓库介绍
 
-此为[amtoaer](https://github.com/amtoaer)的刷题题解仓库，自`2021/1/21`开始进入每日更新状态。
+此为 [yilozt](https://github.com/yilozt) 的刷题题解仓库，fork 自 [amtoaer/go-leetcode](https://github.com/amtoaer/go-leetcode)。自`2022/6/13`开始进入每日更新状态（大概）。
 
 ## 题目组成
 
@@ -19,3 +19,5 @@
 ## 补充说明
 
 虽然该仓库内题解均通过了测试，但其中大部分只是个人的解决思路，并没有在参考官方题解后做相应修改。即：**只保证正确，不保证最优**。
+
+使用的 vscode 插件：[LeetCode](https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode)
