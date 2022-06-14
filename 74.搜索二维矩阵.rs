@@ -4,7 +4,7 @@
  * [74] 搜索二维矩阵
  */
 
-use crate::*;
+use crate::structs::*;
 
 // @lc code=start
 trait Index {

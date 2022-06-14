@@ -4,7 +4,7 @@
  * [1] 两数之和
  */
 
-use crate::*;
+use crate::structs::*;
 
 // @lc code=start
 impl Solution {

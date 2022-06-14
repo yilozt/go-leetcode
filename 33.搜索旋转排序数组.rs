@@ -4,7 +4,7 @@
  * [33] 搜索旋转排序数组
  */
 
-use crate::*;
+use crate::structs::*;
 
 // @lc code=start
 use std::ops::Index;

@@ -7,20 +7,14 @@
 package main
 
 // @lc code=start
+
+// xor
 func singleNumber(nums []int) int {
-	hash_map := make(map[int]int, 0)
+	res := 0
 	for _, n := range nums {
-		_, ok := hash_map[n]
-		if ok {
-			delete(hash_map, n)
-		} else {
-			hash_map[n] = 1
-		}
+		res ^= n
 	}
-	for n, _ := range hash_map {
-		return n
-	}
-	return 0
+	return res
 }
 
 // @lc code=end

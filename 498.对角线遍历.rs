@@ -4,7 +4,7 @@
  * [498] 对角线遍历
  */
 
-use crate::*;
+use crate::structs::*;
 
 // @lc code=start
 struct Pos {

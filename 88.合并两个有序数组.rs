@@ -4,11 +4,11 @@
  * [88] 合并两个有序数组
  */
 
-use crate::*;
+use crate::structs::*;
 
 // @lc code=start
 impl Solution {
-    pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) {
+    pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, _n: i32) {
         let res = nums1;
         let nums1 = Vec::from(&res[0..m as usize]);
 

@@ -4,7 +4,7 @@
  * [53] 最大子数组和
  */
 
-use crate::*;
+use crate::structs::*;
 
 // @lc code=start
 impl Solution {

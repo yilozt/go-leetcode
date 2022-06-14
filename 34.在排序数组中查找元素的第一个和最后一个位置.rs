@@ -4,7 +4,7 @@
  * [34] 在排序数组中查找元素的第一个和最后一个位置
  */
 
-use crate::*;
+use crate::structs::*;
 
 // @lc code=start
 impl Solution {
@@ -58,7 +58,7 @@ fn search_right_bound(nums: &Vec<i32>, target: i32) -> i32 {
 
 #[test]
 fn test() {
-    use crate::*;
+    use crate::structs::*;
     let got = Solution::search_range(vec![1], 1);
     let want = [0, 0];
 

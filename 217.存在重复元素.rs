@@ -4,7 +4,7 @@
  * [217] 存在重复元素
  */
 
-use crate::Solution;
+use crate::structs::*;
 
 // @lc code=start
 impl Solution {
