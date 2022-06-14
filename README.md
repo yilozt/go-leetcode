@@ -20,4 +20,8 @@
 
 虽然该仓库内题解均通过了测试，但其中大部分只是个人的解决思路，并没有在参考官方题解后做相应修改。即：**只保证正确，不保证最优**。
 
-使用的 vscode 插件：[LeetCode](https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode)
+- **编辑器**：Vscode
+  插件：[LeetCode](https://marketplace.visualstudio.com/items?itemName=LeetCode.vscode-leetcode) + Go + rust-analyzer 
+- **Debug**
+  1. go: 需要自己添加 main 函数，之后使用 `go run` 运行或者按下 F5
+  2. rust: 添加 `#[test]` 测试用例，在 `src/lib.rs` 里添加模块
