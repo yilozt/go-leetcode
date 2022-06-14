@@ -19,5 +19,11 @@ mod p34;
 #[path ="../33.搜索旋转排序数组.rs"]
 mod p33;
 
+#[path="../74.搜索二维矩阵.rs"]
+mod p74;
+
+#[path="../136.只出现一次的数字.rs"]
+mod p136;
+
 pub struct Solution;
 
